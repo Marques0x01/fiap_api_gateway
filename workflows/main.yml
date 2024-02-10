@@ -1,0 +1,38 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+env:
+  TF_ACTION_WORKING_DIR: "infra"
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+jobs:
+  Publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Terraform init
+        run: |
+          cd infra
+          terraform init
+      - name: Terraform validate
+        run: |
+          cd infra
+          terraform validate
+      - name: Terraform plan
+        run: |
+          cd infra
+          terraform plan
+      - name: Terraform apply
+        run: |
+          cd infra
+          terraform apply -auto-approve

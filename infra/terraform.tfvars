@@ -1,0 +1,5 @@
+api_gtw_name = "fiap-api-gtw"
+api_gtw_description = "Fiap lanches API Gateway"
+resource_path = "fiap_lanches"
+lambda_auth_arn = "arn:aws:lambda:us-east-1:840666460622:function:lambda_auth"
+stage = "prod"
