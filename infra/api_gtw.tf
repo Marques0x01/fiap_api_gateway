@@ -9,10 +9,23 @@ resource "aws_api_gateway_resource" "proxy" {
   path_part   = var.resource_path
 }
 
+resource "aws_api_gateway_resource" "proxy_order" {
+  rest_api_id = aws_api_gateway_rest_api.api_gtw.id
+  parent_id   = aws_api_gateway_resource.proxy.id
+  path_part   = var.resource_path_order
+
+  depends_on = [ aws_api_gateway_resource.proxy ]
+}
 
 resource "aws_api_gateway_deployment" "api_deployment" {
   depends_on = [
-    aws_api_gateway_integration.lambda_post, aws_api_gateway_integration.lambda_get
+    aws_api_gateway_integration.lambda_post, 
+    aws_api_gateway_integration.lambda_get, 
+    aws_api_gateway_integration.lambda_confirm_integration,
+    aws_api_gateway_integration.lambda_order_unfinished,
+    aws_api_gateway_integration.lambda_order_get_by_status,
+    aws_api_gateway_integration.lambda_order_create,
+    aws_api_gateway_integration.lambda_order_put_status
   ]
 
   rest_api_id = aws_api_gateway_rest_api.api_gtw.id
