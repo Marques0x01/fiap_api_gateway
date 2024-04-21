@@ -6,3 +6,4 @@ stage = "prod"
 
 resource_path = "fiap-lanches"
 resource_path_order = "order"
+resource_path_auth = "auth"

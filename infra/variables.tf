@@ -13,6 +13,11 @@ variable "resource_path" {
   type        = string
 }
 
+variable "resource_path_auth" {
+  description = "Resource path name"
+  type        = string
+}
+
 variable "resource_path_order" {
   description = "Resource path name"
   type        = string
