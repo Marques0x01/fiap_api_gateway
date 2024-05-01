@@ -42,7 +42,7 @@ resource "aws_iam_role" "cloudwatch_logs" {
 EOF
 }
 
-resource "aws_apigateway_account" "example" {
+resource "aws_api_gateway_account" "example" {
   cloudwatch_role_arn = aws_iam_role.cloudwatch_logs.arn
 }
 
