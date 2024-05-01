@@ -14,7 +14,7 @@ resource "aws_api_gateway_resource" "proxy_auth" {
   parent_id   = aws_api_gateway_resource.proxy.id
   path_part   = var.resource_path_auth
 
-  depends_on = [ aws_api_gateway_resource.proxy ]
+  depends_on = [aws_api_gateway_resource.proxy]
 }
 
 resource "aws_api_gateway_resource" "proxy_order" {
@@ -22,13 +22,13 @@ resource "aws_api_gateway_resource" "proxy_order" {
   parent_id   = aws_api_gateway_resource.proxy.id
   path_part   = var.resource_path_order
 
-  depends_on = [ aws_api_gateway_resource.proxy ]
+  depends_on = [aws_api_gateway_resource.proxy]
 }
 
 resource "aws_api_gateway_deployment" "api_deployment" {
   depends_on = [
-    aws_api_gateway_integration.lambda_post, 
-    aws_api_gateway_integration.lambda_get, 
+    aws_api_gateway_integration.lambda_post,
+    aws_api_gateway_integration.lambda_get,
     aws_api_gateway_integration.lambda_confirm_integration,
     aws_api_gateway_integration.lambda_order_unfinished,
     aws_api_gateway_integration.lambda_order_get_by_status,
@@ -41,3 +41,19 @@ resource "aws_api_gateway_deployment" "api_deployment" {
 }
 
 
+
+
+
+
+
+
+resource "aws_api_gateway_method_settings" "logs" {
+  rest_api_id = "${aws_api_gateway_rest_api.api_gtw.id}"
+  stage_name  = "${aws_api_gateway_stage.api_gtw.stage_name}"
+  method_path = "*/*"
+  settings {
+    logging_level = "INFO"
+    data_trace_enabled = true
+    metrics_enabled = true
+  }
+}
