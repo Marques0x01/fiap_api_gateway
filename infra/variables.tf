@@ -23,6 +23,11 @@ variable "resource_path_order" {
   type        = string
 }
 
+variable "resource_path_payment" {
+  description = "Resource path name"
+  type        = string
+}
+
 variable "lambda_auth_arn" {
   description = "Lambda auth arn"
   type        = string
@@ -30,6 +35,11 @@ variable "lambda_auth_arn" {
 
 variable "lambda_order_arn" {
   description = "Lambda order arn"
+  type        = string
+}
+
+variable "lambda_payment_arn" {
+  description = "Lambda payment arn"
   type        = string
 }
 
