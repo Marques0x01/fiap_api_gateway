@@ -41,7 +41,7 @@ resource "aws_api_gateway_deployment" "api_deployment" {
     aws_api_gateway_integration.lambda_order_unfinished,
     aws_api_gateway_integration.lambda_order_get_by_status,
     aws_api_gateway_integration.lambda_order_create,
-    aws_api_gateway_integration.lambda_order_put_status
+    aws_api_gateway_integration.lambda_order_put_status,
     aws_api_gateway_integration.lambda_payment_create
   ]
 
