@@ -31,7 +31,7 @@ resource "aws_api_gateway_integration" "lambda_payment_create" {
 
 resource "aws_api_gateway_model" "body_send_payment" {
   rest_api_id  = aws_api_gateway_rest_api.api_gtw.id
-  name         = "body_send_payment"
+  name         = "BodySendPayment"
   description  = "Model to send payment"
   content_type = "application/json"
 
