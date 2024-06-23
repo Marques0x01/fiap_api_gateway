@@ -56,13 +56,13 @@ resource "aws_api_gateway_deployment" "api_deployment" {
 
 
 
-resource "aws_api_gateway_method_settings" "logs" {
-  rest_api_id = "${aws_api_gateway_rest_api.api_gtw.id}"
-  stage_name  = "prod"
-  method_path = "*/*"
-  settings {
-    logging_level = "INFO"
-    data_trace_enabled = true
-    metrics_enabled = true
-  }
-}
+# resource "aws_api_gateway_method_settings" "logs" {
+#   rest_api_id = "${aws_api_gateway_rest_api.api_gtw.id}"
+#   stage_name  = "prod"
+#   method_path = "*/*"
+#   settings {
+#     logging_level = "INFO"
+#     data_trace_enabled = true
+#     metrics_enabled = true
+#   }
+# }
