@@ -23,7 +23,7 @@ resource "aws_api_gateway_integration" "lambda_order_create" {
 
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
-  uri                     = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/${var.lambda_order_arn}/invocations"
+  uri                     = "arn:aws:apigateway:us-east-2:lambda:path/2015-03-31/functions/${var.lambda_order_arn}/invocations"
 }
 
 
