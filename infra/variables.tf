@@ -48,6 +48,12 @@ variable "lambda_client_arn" {
   type        = string
 }
 
+variable "lambda_kitchen_arn" {
+  description = "Lambda kitchen arn"
+  type        = string
+}
+
+
 variable "lambda_payment_arn" {
   description = "Lambda payment arn"
   type        = string
