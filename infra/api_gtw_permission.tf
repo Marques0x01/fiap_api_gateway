@@ -25,7 +25,7 @@ resource "aws_lambda_permission" "apigw_client" {
 resource "aws_lambda_permission" "apigw_kitchen" {
   statement_id  = "AllowAPIGatewayInvokeLambda"
   action        = "lambda:InvokeFunction"
-  function_name = var.lambda_client_arn
+  function_name = var.lambda_kitchen_arn
   principal     = "apigateway.amazonaws.com"
 
   # The /*/* portion grants access from any method on any resource
