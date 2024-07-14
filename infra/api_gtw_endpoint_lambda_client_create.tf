@@ -37,9 +37,10 @@ resource "aws_api_gateway_model" "body_send_client" {
 
   schema = jsonencode({
     "type"     = "object",
-    "required" = ["name", "address", "phone"],
+    "required" = ["name", "cpf", "address", "phone"],
     "properties" = {
       "name"    = { type = "string" },
+      "cpf"    = { type = "string" },
       "address" = { type = "string" },
       "phone"   = { type = "string" }
     }
