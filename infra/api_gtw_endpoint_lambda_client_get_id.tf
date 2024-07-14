@@ -3,6 +3,10 @@ resource "aws_api_gateway_method" "client_by_id" {
   resource_id   = aws_api_gateway_resource.client_by_id.id
   http_method   = "GET"
   authorization = "NONE"
+
+  request_parameters = {
+    "method.request.querystring.id" = true
+  }
 }
 
 resource "aws_api_gateway_resource" "client_by_id" {
