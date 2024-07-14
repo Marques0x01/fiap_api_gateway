@@ -18,6 +18,11 @@ variable "resource_path_auth" {
   type        = string
 }
 
+variable "resource_path_kitchen" {
+  description = "Resource path name"
+  type        = string
+}
+
 variable "resource_path_client" {
   description = "Resource path name"
   type        = string
